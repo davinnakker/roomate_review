@@ -6,7 +6,7 @@ load_dotenv()
 
 # create engine
 password = os.getenv("MYSQLPASSWORD")
-DATABASE_URL = f"mysql+pymysql://root:{password}@localhost:3306/roomates"
+DATABASE_URL = f"mysql+pymysql://root:{password}@db:3306/roomates"
 engine = create_engine(DATABASE_URL)
 
 # greate session class and its function

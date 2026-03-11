@@ -1,0 +1,22 @@
+services:
+  db:
+    image: mysql:8
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQLPASSWORD}
+      MYSQL_DATABASE: roomates
+    ports:
+      - "3306:3306"
+
+  api:
+    build: .
+    command: uvicorn api.endpoints:app --reload --host 0.0.0.0 --port 8000
+    volumes:
+      - .:/app
+    working_dir: /app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    env_file:
+      - .env
