@@ -28,9 +28,8 @@ const server = http.createServer(async (req, res) => {
     } else if (req.method === 'GET' && req.url === '/roommates') {
         try {
             const result = await pool.query(`
-                SELECT id
+                SELECT username, email, phone, image_url, cleanliness, communication, noise, considerate, sociability, bio
                 FROM rmr.users
-                FULL OUTER JOIN profiles ON users.id = profiles.fk_user
                 ORDER BY username;
             `);
             res.end(JSON.stringify(result.rows));
