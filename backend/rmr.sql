@@ -1,7 +1,5 @@
 ALTER DATABASE rmr SET search_path TO rmr;
 
-DROP TABLE IF EXISTS rmr.post_images CASCADE;
-DROP TABLE IF EXISTS rmr.posts CASCADE;
 DROP TABLE IF EXISTS rmr.roommate CASCADE;
 DROP TABLE IF EXISTS rmr.users CASCADE;
 
